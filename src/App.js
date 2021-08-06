@@ -8,6 +8,13 @@ import Profile from './Components/Profile/Profile';
 import Info from './Components/Info/Info';
 
 function App() {
+
+  const user = {
+    // login: 'Admin',
+    // password: '12345678'
+  }
+
+  window.localStorage.setItem('admin', JSON.stringify(user))
   return (
     <BrowserRouter>
       <div className="App">
