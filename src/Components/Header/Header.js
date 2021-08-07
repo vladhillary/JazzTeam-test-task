@@ -7,8 +7,6 @@ import Logout from './Logout.js'
 
 function Header({ activeUser, setActiveuser }) {
 
-
-
     const { auth } = JSON.parse(localStorage.getItem('admin'))
 
     if (!activeUser) {

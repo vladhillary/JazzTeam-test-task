@@ -26,6 +26,7 @@ function SignIn({ setActiveuser }) {
             setInvalidValue(true)
             return
         }
+        
         if (password !== '12345678') {
             setCheckUserData(false)
             setInvalidValue(true)
@@ -58,6 +59,7 @@ function SignIn({ setActiveuser }) {
     const inputsChange = (e) => {
 
         switch (e.target.name) {
+
             case 'login':
 
                 setLogin(e.target.value)
@@ -74,6 +76,7 @@ function SignIn({ setActiveuser }) {
                     setLoginError('')
                 }
                 break
+
             case 'password':
 
                 setPassword(e.target.value)
@@ -92,6 +95,7 @@ function SignIn({ setActiveuser }) {
                     setPasswordError('')
                 }
                 break
+                
             default: return
         }
 

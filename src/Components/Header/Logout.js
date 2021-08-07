@@ -12,8 +12,8 @@ function Logout({setActiveuser}) {
             password: '12345678',
             auth: false
         }
+
         window.localStorage.setItem('admin', JSON.stringify(activeUser))
-        
         history.push('/')
         setActiveuser(false)
     }
