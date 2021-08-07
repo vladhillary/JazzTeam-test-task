@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { NavLink } from "react-router-dom"
 
-function Nav() {
-    const [auth, setAuth] = useState(false)
-    let userCheck = JSON.parse(window.localStorage.getItem('admin')) 
-    if (userCheck.login === 'Admin' && userCheck.password === '12345678') {
-        console.log('123')
-        if(!auth) setAuth(true)
+function Nav({ activeUser, setActiveuser }) {
+
+    let userCheck = JSON.parse(window.localStorage.getItem('admin'))
+
+    if (userCheck?.auth === true) {
+        if (!activeUser) setActiveuser(true)
     }
     return (
         <nav className='nav'>
@@ -14,7 +14,7 @@ function Nav() {
                 <NavLink exact to='/'>
                     <li>Home</li>
                 </NavLink>
-                <NavLink to={auth ? '/profile' : '/login'} >
+                <NavLink to={activeUser ? '/profile' : '/login'} >
                     <li>Profile</li>
                 </NavLink>
                 <NavLink to='/info'>
