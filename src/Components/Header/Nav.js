@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from "react-router-dom"
 
 function Nav({ activeUser, setActiveuser }) {
 
     let userCheck = JSON.parse(window.localStorage.getItem('admin'))
 
-    if (userCheck?.auth === true) {
-        if (!activeUser) setActiveuser(true)
-    }
+    useEffect(() => {
+        if (userCheck?.auth === true) {
+            if (!activeUser) setActiveuser(true)
+        }
+    })
+
     return (
         <nav className='nav'>
             <ul className='nav_items'>

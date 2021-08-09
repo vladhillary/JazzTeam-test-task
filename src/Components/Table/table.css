@@ -1,0 +1,115 @@
+.container_table{
+    width: 90%;
+    margin: 0 auto;
+}
+.container_table h2{
+    text-align: center;
+    padding-top: 30px;
+    font-size: 32px;
+}
+.table_wrapper{
+    width: 60%;
+    height: 600px;
+    margin: 40px auto;
+    overflow: scroll;
+}
+.table_wrapper table {
+    border-collapse: collapse;
+}
+
+tr td {
+    min-width: 180px;
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: middle;
+    height: 50px;
+    cursor: pointer;
+    position: relative;
+}
+
+thead th{
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background-color: black;
+    color: #fff;
+}
+thead th:first-child{
+    border-top-left-radius: 10px;
+}
+
+thead th:last-child{
+    border-top-right-radius: 10px;
+}
+
+tbody th{
+    position: sticky;
+    left: 0;
+    z-index: 9999;
+    background-color: black;
+    color: #fff;
+}
+tbody tr.mark{
+    background-color: rgb(250, 124, 7);
+}
+
+.number_of_employee{
+    min-width: 50px;
+}
+.th_for_head{
+    background-color: rgb(65, 186, 241);
+    padding: 10px;
+}
+.input_edit{
+    width: 90%;
+    height: 25px;
+    padding: 4px 4px 4px 10px;
+    outline: none;
+}
+.edit{
+    display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+    z-index: 5;
+    bottom: -10px;
+    right: -80px;
+}
+.edit_ok_btn{
+    outline: none;
+    background-color: rgb(34, 104, 34);
+    color: #fff;
+    cursor: pointer;
+    font-size: 10px;
+    padding: 4px;
+}
+.edit_cancel_btn{
+    outline: none;
+    background-color: rgb(255, 0, 0);
+    color: #fff;
+    cursor: pointer;
+    font-size: 10px;
+    padding: 4px;
+}
+.table_panel_state{
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 40px;
+}
+.total_amout_of_data, .amount_of_seleced_rows{
+    background-color: black;
+
+    height: 41px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 240px;
+}
+
+.amount_of_seleced_rows{
+    margin-right: 40px;
+}
