@@ -163,7 +163,7 @@ function Table() {
             </div>
             <div className='table_panel_state'>
                 <p className='amount_of_seleced_rows'>Amount of selected rows: {selectedRow}</p>
-                <p className='total_amout_of_data'>Total amount of data: {dataUser?.length}</p>
+                <p className='total_amout_of_data'>Total employees: {dataUser?.length}</p>
             </div>
 
         </div>

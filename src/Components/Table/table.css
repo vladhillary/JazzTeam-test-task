@@ -25,6 +25,7 @@ tr td {
     height: 50px;
     cursor: pointer;
     position: relative;
+    background-color: #fff;
 }
 
 thead th{
@@ -98,7 +99,7 @@ tbody tr.mark{
     padding-bottom: 40px;
 }
 .total_amout_of_data, .amount_of_seleced_rows{
-    background-color: black;
+    background-color: rgb(56, 139, 177);
 
     height: 41px;
     color: #fff;
