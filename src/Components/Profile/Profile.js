@@ -11,10 +11,12 @@ function Profile() {
 
     const state = useSelector(state => state.admin)
 
-    delete state.auth
-    delete state.password
+    const copyAdmin = {...state}
 
-    const info = Object.entries(state)
+    delete copyAdmin.auth
+    delete copyAdmin.password
+
+    const info = Object.entries(copyAdmin)
 
     return (
         <div className='profile_container'>
