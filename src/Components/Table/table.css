@@ -8,7 +8,7 @@
     font-size: 32px;
 }
 .table_wrapper{
-    width: 60%;
+    width: 80%;
     height: 600px;
     margin: 40px auto;
     overflow: scroll;
@@ -93,7 +93,7 @@ tbody tr.mark td{
     padding: 4px;
 }
 .table_panel_state{
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
     display: flex;
     justify-content: flex-end;
