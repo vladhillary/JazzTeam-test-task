@@ -50,8 +50,9 @@ tbody th{
     background-color: black;
     color: #fff;
 }
-tbody tr.mark{
+tbody tr.mark td{
     background-color: rgb(250, 124, 7);
+    font-weight: bold;
 }
 
 .number_of_employee{

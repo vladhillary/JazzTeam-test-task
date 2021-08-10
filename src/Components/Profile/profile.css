@@ -1,0 +1,62 @@
+.profile_container{
+    width: 90%;
+    margin: 0 auto;
+}
+.profile_wrapper{
+    width: 80%;
+    margin: 50px auto;
+    display: flex;
+    align-items: center;
+}
+.info_user_wrapper{
+    margin-left: 100px;
+}
+.info_user{
+    list-style-type: none;
+    color: chocolate;
+    font-size: 18px;
+}
+.info_user li{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.info_user span {
+    color: black;
+    font-weight: bold;
+}
+.user_btn_wrapper{
+    width: 80%;
+    margin: 80px auto;
+    display: flex;
+    align-items: center;
+}
+.user_btn_wrapper button{
+    outline: none;
+    color: #fff;
+    width: 200px;
+    height: 60px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    
+}
+.table_btn{
+    background-color: black;
+    cursor: pointer;
+}
+.calendar_btn{
+    margin-left: 30px;
+    background-color: rgb(66, 65, 65);
+}
+.message_wrapper{
+    width: 80%;
+    margin: 100px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+.message_wrapper h3 {
+    color: #f56d1e;
+    font-size: 40px;
+}

@@ -4,7 +4,7 @@ import Header from './Components/Header/Header.js';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Home from './Components/Home/Home';
 import SignIn from './Components/SignIn/SignIn.js';
-import Profile from './Components/Profile/Profile';
+import Profile from './Components/Profile/Profile.js';
 import Info from './Components/Info/Info';
 import Error from './Components/Error/Error';
 import Footer from './Components/Footer/Footer';
@@ -21,7 +21,14 @@ function App() {
     const user = {
       login: 'Admin',
       password: '12345678',
-      auth: false
+      auth: false,
+      age: 25,
+      country: 'Belarus',
+      city: 'Minsk',
+      salary: '550$',
+      bankAccount: '1000$',
+      email: 'fakeadmin@gmail.com',
+      phone: '+375-29-551-92-14'
     }
       window.localStorage.setItem('admin', JSON.stringify(user))
 
