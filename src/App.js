@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React from 'react';
 import Header from './Components/Header/Header.js';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Home from './Components/Home/Home';
@@ -12,44 +12,19 @@ import Table from './Components/Table/Table';
 
 function App() {
 
-  const [activeUser, setActiveuser] = useState(false)
-
-  const userInfo = window.localStorage.getItem('admin')
-
-  if (userInfo === null) {
-
-    const user = {
-      login: 'Admin',
-      password: '12345678',
-      auth: false,
-      age: 25,
-      country: 'Belarus',
-      city: 'Minsk',
-      salary: '550$',
-      bankAccount: '1000$',
-      email: 'fakeadmin@gmail.com',
-      phone: '+375-29-551-92-14'
-    }
-      window.localStorage.setItem('admin', JSON.stringify(user))
-
-  }
-
 
   return (
     <BrowserRouter>
       <div className="App">
         <header className='header'>
-          <Header
-            activeUser={activeUser}
-            setActiveuser={setActiveuser}
-          />
+          <Header />
         </header>
         <main className='main'>
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route path='/login' render={() => <SignIn setActiveuser={setActiveuser} />} />
-            <Route path='/profile' component={Profile} /> 
-            <Route path='/table' component={Table} /> 
+            <Route path='/login' component={SignIn} />
+            <Route path='/profile' component={Profile} />
+            <Route path='/table' component={Table} />
             <Route path='/info' component={Info} />
             <Route path='*' component={Error} />
           </Switch>

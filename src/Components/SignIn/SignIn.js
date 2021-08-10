@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react'
 import './signin.css'
 import unlock_ico from '../img/unlock_ico.png'
 import Warning from './Warning'
-import { useHistory } from "react-router-dom";
 
-function SignIn({ setActiveuser }) {
+import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux'
+import admin from '../../redux/actions/admin.js'
+
+function SignIn() {
 
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
@@ -14,12 +17,13 @@ function SignIn({ setActiveuser }) {
     const [passwordError, setPasswordError] = useState("password can't be empty")
     const [checkUserData, setCheckUserData] = useState(false)
     const [invalidValue, setInvalidValue] = useState(false)
-    const history = useHistory();
-
+    const history = useHistory()
+    const dispatch = useDispatch()
+    const state = useSelector(state => state.admin)
 
     const checkUser = () => {
 
-        if (login !== 'Admin') {
+        if (login !== state.login) {
             setCheckUserData(false)
             setLogin('')
             setPassword('')
@@ -27,7 +31,7 @@ function SignIn({ setActiveuser }) {
             return
         }
         
-        if (password !== '12345678') {
+        if (password !== state.password) {
             setCheckUserData(false)
             setInvalidValue(true)
             setLogin('')
@@ -35,14 +39,7 @@ function SignIn({ setActiveuser }) {
             return
         }
 
-        const user = {
-            login: 'Admin',
-            password: '12345678',
-            auth: true
-        }
-
-        window.localStorage.setItem('admin', JSON.stringify(user))
-        setActiveuser(true)
+        dispatch(admin(true))
         history.push('/profile')
     }
 

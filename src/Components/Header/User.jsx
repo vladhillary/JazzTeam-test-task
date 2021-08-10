@@ -1,14 +1,15 @@
 import React from 'react'
 import admin_ico from '../img/admin_ico.png'
+import { useSelector } from 'react-redux'
 
 function User() {
 
-    const {login} = JSON.parse(window.localStorage.getItem('admin'))
+    const state = useSelector(state => state.admin)
 
     return (
         <div className='active_user'>
             <img src={admin_ico} alt="admin_ico" />
-            <span>{login}</span>
+            <span>{state.login}</span>
         </div>
     )
 }

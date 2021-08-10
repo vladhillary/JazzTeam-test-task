@@ -1,35 +1,25 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Nav from './Nav.js'
 import './header.css'
 import Logo from './Logo'
 import User from './User.jsx'
 import Logout from './Logout.js'
 
-function Header({ activeUser, setActiveuser }) {
+import {  useSelector } from 'react-redux'
 
-    const { auth } = JSON.parse(localStorage.getItem('admin'))
+function Header() {
 
-    useEffect(() => {
-        if (!activeUser) {
-            if (auth === true) {
-                setActiveuser(true)
-            }
-        }
-
-    })
+    const state = useSelector(state => state.admin)
 
     return (
         <div className='container'>
             <Logo />
             <div className='panel_wrapper'>
-                <Nav
-                    activeUser={activeUser}
-                    setActiveuser={setActiveuser}
-                />
-                {activeUser &&
+                <Nav />
+                {state.auth &&
                     <>
                         <User />
-                        <Logout setActiveuser={setActiveuser} />
+                        <Logout />
                     </>}
 
             </div>

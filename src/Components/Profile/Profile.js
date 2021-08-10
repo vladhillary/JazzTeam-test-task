@@ -4,16 +4,17 @@ import photo_admin from '../img/admin_img.png'
 import UserInfo from './UserInfo'
 import { NavLink } from "react-router-dom"
 
+import { useSelector } from 'react-redux'
+
 
 function Profile() {
 
-    const userinfo = JSON.parse(window.localStorage.getItem('admin'))
+    const state = useSelector(state => state.admin)
 
+    delete state.auth
+    delete state.password
 
-    delete userinfo.auth
-    delete userinfo.password
-
-    const info = Object.entries(userinfo)
+    const info = Object.entries(state)
 
     return (
         <div className='profile_container'>

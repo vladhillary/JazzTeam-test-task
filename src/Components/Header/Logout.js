@@ -1,21 +1,18 @@
 import React from 'react'
 import { useHistory } from "react-router-dom";
+import { useDispatch } from 'react-redux'
+import admin from '../../redux/actions/admin.js'
 
-function Logout({setActiveuser}) {
+function Logout() {
 
-    const history = useHistory();   
+    const history = useHistory()
+
+    const dispatch = useDispatch()
 
     const logoutHandler = () => {
 
-        let activeUser = {
-            login: 'Admin',
-            password: '12345678',
-            auth: false
-        }
-
-        window.localStorage.setItem('admin', JSON.stringify(activeUser))
         history.push('/')
-        setActiveuser(false)
+        dispatch(admin(false))
     }
 
     return (

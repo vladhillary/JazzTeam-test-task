@@ -1,15 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { NavLink } from "react-router-dom"
 
-function Nav({ activeUser, setActiveuser }) {
+import { useSelector } from 'react-redux'
 
-    let userCheck = JSON.parse(window.localStorage.getItem('admin'))
+function Nav() {
 
-    useEffect(() => {
-        if (userCheck?.auth === true) {
-            if (!activeUser) setActiveuser(true)
-        }
-    })
+    const state = useSelector(state => state.admin)
+
 
     return (
         <nav className='nav'>
@@ -17,7 +14,7 @@ function Nav({ activeUser, setActiveuser }) {
                 <NavLink exact to='/'>
                     <li>Home</li>
                 </NavLink>
-                <NavLink to={activeUser ? '/profile' : '/login'} >
+                <NavLink to={state.auth ? '/profile' : '/login'} >
                     <li>Profile</li>
                 </NavLink>
                 <NavLink to='/info'>
