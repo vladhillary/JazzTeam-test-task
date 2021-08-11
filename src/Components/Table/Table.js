@@ -44,71 +44,49 @@ function Table() {
 
         if (e.target.nodeName === 'TD') {
 
-            let id = e.target.id
+            const id = e.target.id
 
-            let newDataUser = [...dataUser]
-            newDataUser.forEach(item => {
+            dataUser.forEach(item => {
                 if (item.id === +id) {
                     item.checked = !item.checked
                 }
             })
-            setDataUser(newDataUser)
+            setDataUser(dataUser)
         }
     }
 
     const editForCell = (e, cell) => {
 
-        let id = e.target.id
-        let cellContent = cell
+        const id = e.target.id
+        const cellContent = cell
 
         setEditCell({ id, cellContent })
 
     }
 
-    const addEditToCell = (cellContent, id, oldContent) => {
+    const addEditToCell = (cellContent, id, itemField) => {
 
-        let idCell = id
-        let nextContent = cellContent
-        let prevContent = oldContent
 
-        let newDataUser = [...dataUser]
+        const editIndex = dataUser.findIndex((item) => {
 
-        newDataUser.forEach(item => {
-
-            if (item.id === +idCell) {
-
-                let obj = item
-
-                obj[Symbol.iterator] = function (n = 29) {
-
-                    let i = 0
-                    return {
-                        next() {
-                            if (i < n) {
-                                return { value: ++i, done: false }
-                            }
-                            return { value: undefined, done: true }
-                        }
-                    }
-                }
-
-                for (let value in obj) {
-
-                    if (item[value] === prevContent) {
-                        item[value] = nextContent
-                    }
-                }
-            }
+            return item.id === id
         })
 
+        const itemToedit = dataUser[editIndex]
+        const upDatedItem = { ...itemToedit, [itemField]: cellContent }
+        const firstPart = dataUser.slice(0, editIndex)
+        const secondPart = dataUser.slice(editIndex + 1)
+        const upDatedUsers = [...firstPart, upDatedItem, ...secondPart]
+
+
+        setDataUser(upDatedUsers)
         setInputEdit('')
     }
 
     const amountSelectedRows = () => {
 
-        let newDataUser = [...dataUser]
         let amoutSeleced = 0
-        newDataUser.forEach(item => {
+        dataUser.forEach(item => {
 
             if (item.checked) {
                 amoutSeleced++
@@ -121,7 +99,7 @@ function Table() {
 
     if (dataUser) {
 
-        let amoutSeleced = amountSelectedRows()
+        const amoutSeleced = amountSelectedRows()
 
         if (amoutSeleced !== selectedRow) setSelectedRow(amoutSeleced)
 
@@ -146,15 +124,15 @@ function Table() {
                         {dataUser !== null ?
                             dataUser.map((item) => {
                                 return <TrComponent
-                                key={item.id + item}
-                                items={item}
-                                editForCell={editForCell}
-                                editCell={editCell}
-                                onChangeInputEdit={onChangeInputEdit}
-                                inputEdit={inputEdit}
-                                addEditToCell={addEditToCell}
-                                cancelEdit={cancelEdit}
-                                 />
+                                    key={item.id + item}
+                                    items={item}
+                                    editForCell={editForCell}
+                                    editCell={editCell}
+                                    onChangeInputEdit={onChangeInputEdit}
+                                    inputEdit={inputEdit}
+                                    addEditToCell={addEditToCell}
+                                    cancelEdit={cancelEdit}
+                                />
                             })
                             : null
                         }

@@ -1,6 +1,7 @@
 import React from 'react'
 
 function TdComponent({ item, itemField, editForCell, editCell, onChangeInputEdit, inputEdit, addEditToCell, cancelEdit }) {
+
     return (
         <>
             
@@ -15,7 +16,7 @@ function TdComponent({ item, itemField, editForCell, editCell, onChangeInputEdit
                             value={inputEdit}
                         />
                         <button
-                            onClick={() => addEditToCell(inputEdit, item.id, item[itemField])}
+                            onClick={() => addEditToCell(inputEdit, item.id, itemField)}
                             className='edit_ok_btn'>OK</button>
                         <button
                             onClick={cancelEdit}
