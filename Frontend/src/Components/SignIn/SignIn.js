@@ -21,7 +21,23 @@ function SignIn() {
     const dispatch = useDispatch()
     const state = useSelector(state => state.admin)
 
+    const fetchData = async() => {
+
+        const data = {
+            login: state.login,
+            password : state.password
+        }
+        console.log(data, 'front');
+
+        const response = await fetch('http://localhost:3001/')
+       
+        const parsedResp = await response.json()
+        console.log(parsedResp, 'front');
+    }
+
     const checkUser = () => {
+
+        fetchData()
 
         if (login !== state.login) {
             setCheckUserData(false)
@@ -30,7 +46,7 @@ function SignIn() {
             setInvalidValue(true)
             return
         }
-        
+
         if (password !== state.password) {
             setCheckUserData(false)
             setInvalidValue(true)
@@ -92,7 +108,7 @@ function SignIn() {
                     setPasswordError('')
                 }
                 break
-                
+
             default: return
         }
 
