@@ -12,13 +12,11 @@ app.use(cors({
 
 app.get('/', (req, res) => {
 
-    console.log(req);
     res.json({
-        auth: true
+        login: LOGIN,
+        password: PASSWORD
     })
 })
-
-app.post('')
 
 app.listen(PORT, (error) => {
     error ? console.log(error) : console.log(`listening port ${PORT}`)

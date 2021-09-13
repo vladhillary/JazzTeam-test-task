@@ -4,7 +4,7 @@ import unlock_ico from '../img/unlock_ico.png'
 import Warning from './Warning'
 
 import { useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import admin from '../../redux/actions/admin.js'
 
 function SignIn() {
@@ -19,27 +19,26 @@ function SignIn() {
     const [invalidValue, setInvalidValue] = useState(false)
     const history = useHistory()
     const dispatch = useDispatch()
-    const state = useSelector(state => state.admin)
 
-    const fetchData = async() => {
+    let serverLogin;
+    let serverPassword;
 
-        const data = {
-            login: state.login,
-            password : state.password
-        }
-        console.log(data, 'front');
+    const fetchData = async () => {
 
-        const response = await fetch('http://localhost:3001/')
-       
+        const response = await fetch('http://localhost:3001')
+
         const parsedResp = await response.json()
-        console.log(parsedResp, 'front');
+
+        serverLogin = parsedResp.login
+        serverPassword = parsedResp.password
+
     }
 
-    const checkUser = () => {
+    const checkUser = async () => {
 
-        fetchData()
+        await fetchData()
 
-        if (login !== state.login) {
+        if (login !== serverLogin) {
             setCheckUserData(false)
             setLogin('')
             setPassword('')
@@ -47,7 +46,7 @@ function SignIn() {
             return
         }
 
-        if (password !== state.password) {
+        if (password !== serverPassword) {
             setCheckUserData(false)
             setInvalidValue(true)
             setLogin('')

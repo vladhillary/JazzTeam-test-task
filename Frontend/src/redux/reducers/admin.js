@@ -1,6 +1,5 @@
 const initialState = {
     login: 'Admin',
-    password: '12345678',
     auth: false,
     age: 25,
     country: 'Belarus',
